@@ -1,6 +1,6 @@
 import React from "react";
 
-const ColorfulMessage = (props) => {
+export const ColorfulMessage = (props) => {
   //オブジェクトの分割代入を使用("props.color→color"のように"props."の部分が省略できるようになる)
   const { color, children } = props;
   const contentStyle = {
@@ -11,5 +11,3 @@ const ColorfulMessage = (props) => {
   //例<p>"ここだ！！"</p>
   return <p style={contentStyle}>{children}</p>;
 };
-
-export default ColorfulMessage;
