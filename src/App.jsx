@@ -33,8 +33,10 @@ const App = () => {
   return (
     <>
       <h1 style={{ color: "red" }}>おはようございます！</h1>
-      {/* 以下共通のコンポーネント（共通パーツ）を使うことでわかりやすく書くことができる */}
+      {/* 以下共通のコンポーネント（共通パーツ）を使うことでわかりやすく書くことができる 
+      今回のpropsの名前はcolor↓で、代入するのは“blue”という情報*/}
       <ColorfulMessage color="blue">お元気ですか？</ColorfulMessage>
+
       <ColorfulMessage color="pink">
         はい！サクラバクシンオーです！！
       </ColorfulMessage>
