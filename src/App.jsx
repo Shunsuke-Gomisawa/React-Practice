@@ -8,7 +8,7 @@ const App = () => {
   const [faceShowFlag, setFaceShowFlag] = useState(false); //ここで実際にstateが変更されたりしている
 
   //ここは"state"における関数処理を描く
-  const onClickUpUp = () => {
+  const onClickUp = () => {
     setNum(num + 1);
   };
   //ボタンを押すと絵文字の表示非表示が切り替わる関数処理
@@ -40,7 +40,7 @@ const App = () => {
       <ColorfulMessage color="pink">
         はい！サクラバクシンオーです！！
       </ColorfulMessage>
-      <button onClick={onClickUpUp}>カウントアップ!</button>
+      <button onClick={onClickUp}>カウントアップ!</button>
       <br />
       <button onClick={onClickSwitchShowFlag}>on/off</button>
       <p>{num}</p>
