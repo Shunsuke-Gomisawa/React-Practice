@@ -5,7 +5,7 @@ const App = () => {
   console.log("さいしょ");
   //ここが状態を表す"state"である
   const [num, setNum] = useState(0); //ここは初期値を入れる
-  const [faceShowFlag, setFaceShowFlag] = useState(false);
+  const [faceShowFlag, setFaceShowFlag] = useState(false); //ここで実際にstateが変更されたりしている
 
   //ここは"state"における関数処理を描く
   const onClickUpUp = () => {
