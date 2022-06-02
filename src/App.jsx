@@ -9,18 +9,25 @@ const App = () => {
 
   //ここは"state"における関数処理を描く
   const onClickUp = () => {
-    setNum(num + 1);
+    return setNum(num + 1); //ここのreturnは省略可能
   };
   //ボタンを押すと絵文字の表示非表示が切り替わる関数処理
+  //ここの処理はstateを更新しているので、ボタンを押すとまた初めから再レンダリングされてしまう
   const onClickSwitchShowFlag = () => {
-    setFaceShowFlag(!faceShowFlag);
+    return setFaceShowFlag(!faceShowFlag); //ここのreturnは省略可能
   };
 
   //関心の分岐
+  //numの値に関心を持ち、faceShowFlagには関心を持たないようにした
+  //これにより、子コンポーネントでありながら親コンポーネントであるAppのstate
+  //「faceShowFlag」が更新された場合はレンダリングがされなくなった
   useEffect(() => {
     //3の倍数の時に顔文字が表示されるようにする
+    console.log("useEffectを通過");
     if (num > 0) {
       if (num % 3 === 0) {
+        //orを使うことによって、すでにフラグがtrueの場合はset関数を呼ばないようにすることで、無限レンダリングを回避
+        //左がfalseの時、右側を返す
         faceShowFlag || setFaceShowFlag(true);
       } else {
         faceShowFlag && setFaceShowFlag(false);
@@ -37,9 +44,7 @@ const App = () => {
       今回のpropsの名前はcolor↓で、代入するのは“blue”という情報*/}
       <ColorfulMessage color="blue">お元気ですか？</ColorfulMessage>
 
-      <ColorfulMessage color="pink">
-        はい！サクラバクシンオーです！！
-      </ColorfulMessage>
+      <ColorfulMessage color="pink">はい！元気です！！</ColorfulMessage>
       <button onClick={onClickUp}>カウントアップ!</button>
       <br />
       <button onClick={onClickSwitchShowFlag}>on/off</button>
